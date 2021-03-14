@@ -103,38 +103,79 @@
                 Inscription
             </h2>
             <label>
-              <input type="text" class="input" placeholder="SAISSISER VOTRE ADRESSE COURRIEL">
+              <input id='inputEmail' type="email" class="input" placeholder="SAISSISER VOTRE ADRESSE COURRIEL">
+              <div class="line-box">
+                <div class="line">
+                </div>
+              </div>
+            </label>
+            <label>
+              <input id='inputPrenom' type="text" class="input" placeholder="SAISSISER VOTRE PRENOM">
+              <div class="line-box">
+                <div class="line">
+                </div>
+              </div>
+            </label>
+            <label>
+                <input id='inputNom' type="text" class="input" placeholder="SAISSISER VOTRE NOM">
+                <div class="line-box">
+                  <div class="line">
+                  </div>
+                </div>
+              </label>
+            <label>
+              <input id='inputPassword' type="password" class="input" placeholder="CREATION D'UN MOT DE PASSE">
               <div class="line-box">
                 <div class="line"></div>
               </div>
             </label>
             <label>
-              <input type="text" class="input" placeholder="SAISSISER VOTRE PRENOM">
-              <div class="line-box">
-                <div class="line"></div>
-              </div>
-            </label>
-            <label>
-                <input type="text" class="input" placeholder="SAISSISER VOTRE NOM">
+                <input id='inputConfirmPassword' type="password" class="input" placeholder="VERIFICATION DU MOT DE PASSE">
                 <div class="line-box">
                   <div class="line"></div>
                 </div>
               </label>
-            <label>
-              <input type="text" class="input" placeholder="CREATION D'UN MOT DE PASSE">
-              <div class="line-box">
-                <div class="line"></div>
-              </div>
-            </label>
-            <label>
-                <input type="text" class="input" placeholder="VERIFICATION DU MOT DE PASSE">
-                <div class="line-box">
-                  <div class="line"></div>
-                </div>
-              </label>
-            <button type="submit">Confirmer mon inscription</button>
+            <button id='btnSubmit' type="submit">Confirmer mon inscription</button>
         </form>
     </div>
 </body>
+
+
+
+<script>
+    $("#btnSubmit").click(function() {
+
+
+      var email=
+      if(prenom=="" || prenom==null || !(/^[A-Za-z\s]+$/.test(prenom)) || prenom.length>50 ){
+        alert("Le prénom entré est invalide");
+      }
+      else{
+
+      }
+                    $.ajax({
+                            url: "../PHP/addUserAccount.php",
+                            type: "POST",
+                            dataType: "json",
+                            data: {
+                            "email":email,
+                            "mdp":mdp,
+                            "name":name,
+                            "lastName":lastName},
+                            success: function(result){
+                               alert(result);
+                            },
+                            error: function (message, er) {
+                                console.log("erreur lors de la connexion création du compte:" + er);
+                            }
+                        });
+
+
+    });
+
+
+                
+        
+</script>
 
 </html>
