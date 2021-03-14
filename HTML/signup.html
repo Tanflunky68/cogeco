@@ -144,15 +144,30 @@
 
 <script>
     $("#btnSubmit").click(function() {
+      var email = $("#inputEmail").val();
+	    var mdp = $("#inputPassword").val();
+      var mdpconfirmer = $("#inputConfirmPassword").val();
+	    var lastName=$("#inputNom").val();
+	    var name=$("#inputPrenom").val();
 
 
-      var email=
-      if(prenom=="" || prenom==null || !(/^[A-Za-z\s]+$/.test(prenom)) || prenom.length>50 ){
+      if(name=="" || name==null || !(/^[A-Za-z\s]+$/.test(name)) || name.length>50 ){
         alert("Le prénom entré est invalide");
       }
       else{
-
-      }
+          if(lastName=="" || lastName==null || !(/^[A-Za-z\s]+$/.test(lastName)) || lastName.length>50 ){
+            alert("Le nom entré est invalide");
+          }
+          else{
+              if(email=="" || email==null || !(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email)) || email.length>250 ){
+                  alert("Le courriel entré est invalide");
+              }
+              else{
+                if(mdp=="" || mdp==null || mdp.length>25 ){
+                  alert("Le mot de passe entré est invalide");
+                }
+                else{
+                  if(mdp==mdpconfirmer){
                     $.ajax({
                             url: "../PHP/addUserAccount.php",
                             type: "POST",
@@ -168,7 +183,16 @@
                             error: function (message, er) {
                                 console.log("erreur lors de la connexion création du compte:" + er);
                             }
-                        });
+                    });
+                  }
+                  else{
+                    alert("Les mots de passe entrer ne correspondent pas");
+                  }
+                }
+             }
+          }
+      }
+                   
 
 
     });
