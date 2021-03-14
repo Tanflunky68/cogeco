@@ -40,14 +40,14 @@
         }
         
         .btn-lg {
-            margin-top: 2.5%;
+            margin-top: 1.7%;
         }
     </style>
 </head>
 
 <body>
     <nav class="navbar navbar-light bg-light justify-content-between" style="height: 50%;">
-        <img class="navbar-brand" src="https://i1.wp.com/www.ywcahamilton.org/wp-content/uploads/2019/11/COGECO-Logo.png?ssl=1" style="max-width: 150px; max-height: 150px;">COGECO SANTE</img>
+        <img class="navbar-brand" id="cogecologo" src="https://i1.wp.com/www.ywcahamilton.org/wp-content/uploads/2019/11/COGECO-Logo.png?ssl=1" style="max-width: 150px; max-height: 150px;">COGECO SANTE</img>
     </nav>
     <div class="alert alert-primary" role="alert">
         Bienvenue dans votre espace utilisateur, Michael
@@ -57,10 +57,11 @@
             <div id="profilpicture"><img src="https://www.pngkey.com/png/detail/950-9501315_katie-notopoulos-katienotopoulos-i-write-about-tech-user.png" style="max-height: 350px; max-width: 350px; margin-left:5%; margin-top:1%;">
             </div>
             <div style="display: flex; flex-direction: column; align-content: flex-end; width: 50%; margin-left: 25%;">
-                <button type="button" class="btn btn-primary btn-lg">Modifier mon adresse courriel</button>
+                <button id="changeemail" type="button" class="btn btn-primary btn-lg">Modifier mon adresse courriel</button>
                 <button type="button" class="btn btn-primary btn-lg">Modifier mon mot de passe</button>
                 <button type="button" class="btn btn-primary btn-lg">Modifier mon image</button>
                 <button type="button" class="btn btn-primary btn-lg">Voir mes statistiques</button>
+                <button id="disconnect" type="button" class="btn btn-primary btn-lg">Se deconnecter</button>
             </div>
         </div>
     </div>
@@ -108,5 +109,18 @@
         </div>
     </div>
 </body>
+<script>
+    $("#cogecologo").click(function() {
+        window.open("index.html", "_self");
+    })
+
+    $("#disconnect").click(function() {
+        window.open("login.html", "_self");
+    })
+
+    $("#changeemail").click(function() {
+        window.open("ChangeEmail.html", "_self");
+    })
+</script>
 
 </html>
